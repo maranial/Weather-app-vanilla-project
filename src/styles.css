@@ -26,11 +26,12 @@ h1{
     font-family: 'Archivo Black', sans-serif;
 }
 input{
-    width: 400px;
+    width: 350px;
     border-radius: 10px;
-    border: 1px solid #e5c5b5;
+    border: 1px solid gainsboro;
     padding: 4px;
     color: #637373;
+    
 }
 button{
     padding: 8px 15px;
