@@ -12,10 +12,12 @@
     <title>Final Weather App</title>
 </head>
 <body>
+    <div class ="container-wrapper">
     <div class="container">
+        
         <div class="row justify-content-between">
             <div class="col-6">
-                <h1>Hello, Mara!</h1> <!--Use h1 for showing the weather action ex. you might need umbrella for a rainy day (will do in js)-->
+                <h1>Hello, Boston!</h1> <!--Use h1 for showing the name of the city, once the user enter the city name (will do in js)-->
             </div>
             <div class="col-2">
                 <div class="btn-group" role="group" aria-label="switch-temp">
@@ -26,8 +28,9 @@
         </div>
         
         
-        <input type="text" placeholder="  Enter your city" />
-        <button type="submit">Search</button>
+        <input type="text" placeholder="  Enter your city" id="search-box"/> 
+        <button type="submit"><i class="fas fa-search"></i></button>
+       
     
         
         </br>
@@ -35,17 +38,18 @@
            
                 <div class="row justify-content-center">
                   <div class="col-4">
-                        <h2>&deg6</h2>
+                        <h2>6&deg</h2>
                         <i class="fas fa-cloud fa-7x"></i>
                         <p><span style="font-size:26px;padding-left:38px;">Dec 9</span></p>
                   </div>
                   <div class="col-4">
                     <div class="card-body">
                     </br>
+                    <!--Use h3 for showing the weather action ex. you might need umbrella for a rainy day (will do in js)-->
                         <h3 class="card-title" name="location">Boston</h3>
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">High: &deg8</li>
-                          <li class="list-group-item">Low: &deg4</li>
+                          <li class="list-group-item">High: 8&deg</li>
+                          <li class="list-group-item">Low: 4&deg</li>
                           <li class="list-group-item"><a href="#" class="card-link ">Weather Channel</a></li>
                         </ul>
                         
@@ -58,34 +62,37 @@
     
             <div class="row align-items-end">
                 <div class="col">
-                    <h4>&deg12</h4>
+                    <h4>12&deg</h4>
                     <i class="fas fa-sun fa-3x"></i>">
                     <p>Dec 10</p>
                 </div>
                 <div class="col">
-                    <h4>&deg14</h4>
+                    <h4>14&deg</h4>
                     <i class="fas fa-cloud-sun-rain fa-3x"></i>
                     <p>Dec 11</p>
                 </div>
                 <div class="col">
-                    <h4>&deg10</h4>
+                    <h4>10&deg</h4>
                     <i class="fas fa-wind fa-3x"></i>
                     <p>Dec 12</p>
                 </div>
                 <div class="col">
-                    <h4>&deg11</h4>
+                    <h4>11&deg</h4>
                         <i class="fas fa-sun fa-3x"></i>
                         <p>Dec 13</p>
                   </div>
                   <div class="col">
-                    <h4>&deg5</h4>
+                    <h4>5&deg</h4>
                         <i class="fas fa-cloud fa-3x"></i>
                         <p>Dec 14</p>
                   </div>
               </div>
+            </div>
         </div>
             
-    
+        <small>
+            <a href="https://github.com/wecodeschool/vanilla-weather-app" target="_blank">Open-source code</a> by Mara Suwannawat
+          </small>
 
 
     <script src="src/script.js"></script>
