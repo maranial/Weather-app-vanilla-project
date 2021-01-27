@@ -61,4 +61,6 @@ h3{
     border:none;
 }
 
-   
+.card-link li a{
+    text-decoration: none ;
+}
