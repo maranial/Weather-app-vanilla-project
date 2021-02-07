@@ -55,6 +55,7 @@ h3{
     font-family: 'Archivo Black', sans-serif;
     font-size: 30px;
     text-indent: 13px;
+    text-transform: capitalize;
 }
 .list-group-item{
     background:none;
@@ -62,5 +63,5 @@ h3{
 }
 
 .card-link li a{
-    text-decoration: none ;
+    text-decoration: none;
 }
