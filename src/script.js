@@ -21,6 +21,10 @@ function showTemperature(response){
     let highCondition = document.querySelector("#high-id");
     let lowCondition = document.querySelector("#low-id");
     let currentDate = document.querySelector("#now");
+
+    //don't need to create new variable because CelsiusTemp is a global variable, I just store it  to use it later.
+    celsiusTemp = response.data.main.temp;
+
     temp.innerHTML = Math.round(response.data.main.temp);
     city.innerHTML = response.data.name;
     description.innerHTML = response.data.weather[0].description;
@@ -38,3 +42,30 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
 
 //console.log(apiUrl);
 axios.get(apiUrl).then(showTemperature);
+
+function showFahrenheitTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+    let fahrenheitTemp = (celsiusTemp * 9) / 5 +32;
+    //alert(fahrenheitTemp);
+
+    let temperatureCondition = document.querySelector("#temperatureId");
+    temperatureCondition.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsiusTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+    let temperatureCondition = document.querySelector("#temperatureId");
+    temperatureCondition.innerHTML = Math.round(celsiusTemp);
+}
+
+// let form = document.querySelector("");
+// form.addEventListener("submit", showSubmit);
+
+let celsiusTemp = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+

@@ -24,10 +24,12 @@
                 <h1>Hello, <span id="cityId"></span></h1> <!--Use h1 for showing the good morning, and the name of the city, once the user enter the city name (will do in js)-->
             </div>
             <div class="col-2">
-                <div class="btn-group" role="group" aria-label="switch-temp">
-                    <button type="button" class="btn btn-info">&#8451</button>
-                    <button type="button" class="btn btn-light">&#8457</button>
+                <div class="clearfix">
+                <div class="btn-group" role="group" aria-label="switch-temp" id="temperature-switch">
+                    <button type="button" class="btn btn-info" id="celsius-link" class="active-temp">&#8451</button>
+                    <button type="button" class="btn btn-light" id="fahrenheit-link">&#8457</button>
                   </div>
+                </div>
             </div>
         </div>
         
@@ -44,8 +46,7 @@
                   <div class="col-4">
                         <h2> <span id="temperatureId"></span>&deg</h2>
                         <i class="fas fa-cloud fa-7x"></i>
-                        <p styles="font-size:26px;
-                        padding-left:38px;"><span id="now"></span></p>
+                        <p><span id="now"></span></p>
                   </div>
                   <div class="col-6">
                     <div class="card-body">
