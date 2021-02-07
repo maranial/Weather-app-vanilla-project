@@ -24,6 +24,9 @@ function showTemperature(response){
 
     //don't need to create new variable because CelsiusTemp is a global variable, I just store it  to use it later.
     celsiusTemp = response.data.main.temp;
+    feels_like_temp = response.data.main.feels_like;
+    high_temp = response.data.main.temp_max;
+    low_temp = response.data.main.temp_min;
 
     temp.innerHTML = Math.round(response.data.main.temp);
     city.innerHTML = response.data.name;
@@ -54,6 +57,8 @@ function showFahrenheitTemp(event){
 
     let temperatureCondition = document.querySelector("#temperatureId");
     temperatureCondition.innerHTML = Math.round(fahrenheitTemp);
+   
+
 }
 
 function showCelsiusTemp(event){
@@ -69,6 +74,9 @@ function showCelsiusTemp(event){
 // form.addEventListener("submit", showSubmit);
 
 let celsiusTemp = null;
+let feels_like_temp = null;
+let high_temp = null;
+let low_temp = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
@@ -76,3 +84,73 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
+let fahrenheitFeelsLike = document.querySelector("#fahrenheit-link");
+fahrenheitFeelsLike.addEventListener("click", showFahrenheitFeelsLikeTemp);
+
+let celsiusFeelsLike = document.querySelector("#celsius-link");
+celsiusFeelsLike.addEventListener("click", showCelsiusFeelsLikeTemp);
+
+let fahrenheitHigh = document.querySelector("#fahrenheit-link");
+fahrenheitHigh.addEventListener("click", showFahrenheitHighTemp);
+
+let celsiusHigh = document.querySelector("#celsius-link");
+celsiusHigh.addEventListener("click", showCelsiusHighTemp);
+
+let fahrenheitLow = document.querySelector("#fahrenheit-link");
+fahrenheitLow.addEventListener("click", showFahrenheitLowTemp);
+
+let celsiusLow = document.querySelector("#celsius-link");
+celsiusLow.addEventListener("click", showCelsiusLowTemp);
+
+// let feelsLikeCondition = document.querySelector("#feels-like-id");
+// let highCondition = document.querySelector("#high-id");
+// let lowCondition = document.querySelector("#low-id");
+
+// feelsLikeCondition.innerHTML = Math.round(fahrenheitTemp);
+// highCondition.innerHTML = Math.round(fahrenheitTemp);
+// lowCondition.innerHTML = Math.round(fahrenheitTemp);
+
+function showFahrenheitFeelsLikeTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+
+    let fahrenheitTemp = (feels_like_temp * 9) / 5 +32;
+    let feelsLikeCondition = document.querySelector("#feels-like-id");
+    feelsLikeCondition.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsiusFeelsLikeTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+
+    let feelsLikeCondition = document.querySelector("#feels-like-id");
+    feelsLikeCondition.innerHTML = Math.round(feels_like_temp);
+}
+
+function showFahrenheitHighTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+
+    let fahrenheitTemp = (high_temp * 9) / 5 +32;
+    let feelsLikeCondition = document.querySelector("#high-id");
+    feelsLikeCondition.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsiusHighTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+
+    let feelsLikeCondition = document.querySelector("#high-id");
+    feelsLikeCondition.innerHTML = Math.round(high_temp);
+}
+
+function showFahrenheitLowTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+
+    let fahrenheitTemp = (low_temp * 9) / 5 +32;
+    let feelsLikeCondition = document.querySelector("#low-id");
+    feelsLikeCondition.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsiusLowTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+
+    let feelsLikeCondition = document.querySelector("#low-id");
+    feelsLikeCondition.innerHTML = Math.round(low_temp);
+}
