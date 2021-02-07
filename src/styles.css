@@ -47,7 +47,7 @@ button:hover{
 
 h2{
     font-size: 45px;
-    padding-left: 45px;
+    padding-left: 50px;
     padding-top: 35px;
 }
 
@@ -64,4 +64,9 @@ h3{
 
 .card-link li a{
     text-decoration: none;
+}
+#now{
+    font-size:26px;
+    padding-left:38px;
+
 }
