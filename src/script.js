@@ -45,6 +45,10 @@ axios.get(apiUrl).then(showTemperature);
 
 function showFahrenheitTemp(event){
     event.preventDefault(); //avoid linking to the other page when using a link tag
+    //remove the active class from the celsius button
+    celsiusLink.classList.remove("active-temp");
+    fahrenheitLink.classList.add("active-temp");
+
     let fahrenheitTemp = (celsiusTemp * 9) / 5 +32;
     //alert(fahrenheitTemp);
 
@@ -54,6 +58,9 @@ function showFahrenheitTemp(event){
 
 function showCelsiusTemp(event){
     event.preventDefault(); //avoid linking to the other page when using a link tag
+   
+    celsiusLink.classList.add("active-temp");
+    fahrenheitLink.classList.remove("active-temp");
     let temperatureCondition = document.querySelector("#temperatureId");
     temperatureCondition.innerHTML = Math.round(celsiusTemp);
 }

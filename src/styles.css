@@ -42,7 +42,6 @@ button{
 }
 button:hover{
     background: #ffeadb;
-
 }
 
 h2{
@@ -70,9 +69,12 @@ h3{
     padding-left:38px;
 
 }
-#celsius-link :hover{
-    background: pink;
+.temperature-switch button {
+    /* cursor: default; it's not working - I don't know what the reason behinds this yet*/ 
+    
 }
-#fahrenheit-link :hover{
-    background: pink;
+.temperature-switch .active-temp{
+    background:  #0275d8;
+    color: white;
+    
 }
