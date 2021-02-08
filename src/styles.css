@@ -45,7 +45,7 @@ button:hover{
 }
 
 h2{
-    font-size: 45px;
+    font-size: 36px;
     padding-left: 50px;
     padding-top: 35px;
 }
@@ -64,14 +64,14 @@ h3{
 .card-link li a{
     text-decoration: none;
 }
-#now{
-    font-size:26px;
+#now {
+    font-size:24px;
     padding-left:38px;
 
 }
-.temperature-switch button {
-    /* cursor: default; it's not working - I don't know what the reason behinds this yet*/ 
-    
+#weather-icon{
+    padding-left:22px;
+
 }
 .temperature-switch .active-temp{
     background:  #0275d8;

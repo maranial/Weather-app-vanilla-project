@@ -21,6 +21,7 @@ function showTemperature(response){
     let highCondition = document.querySelector("#high-id");
     let lowCondition = document.querySelector("#low-id");
     let currentDate = document.querySelector("#now");
+    let currentIcon = document.querySelector("#weather-icon");
 
     //don't need to create new variable because CelsiusTemp is a global variable, I just store it  to use it later.
     celsiusTemp = response.data.main.temp;
@@ -35,6 +36,8 @@ function showTemperature(response){
     highCondition.innerHTML = Math.round(response.data.main.temp_max);
     lowCondition.innerHTML = Math.round(response.data.main.temp_min);
     currentDate.innerHTML = showMonthAndDate(response.data.dt * 1000);
+    currentIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    currentIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 
@@ -102,13 +105,6 @@ fahrenheitLow.addEventListener("click", showFahrenheitLowTemp);
 let celsiusLow = document.querySelector("#celsius-link");
 celsiusLow.addEventListener("click", showCelsiusLowTemp);
 
-// let feelsLikeCondition = document.querySelector("#feels-like-id");
-// let highCondition = document.querySelector("#high-id");
-// let lowCondition = document.querySelector("#low-id");
-
-// feelsLikeCondition.innerHTML = Math.round(fahrenheitTemp);
-// highCondition.innerHTML = Math.round(fahrenheitTemp);
-// lowCondition.innerHTML = Math.round(fahrenheitTemp);
 
 function showFahrenheitFeelsLikeTemp(event){
     event.preventDefault(); //avoid linking to the other page when using a link tag
