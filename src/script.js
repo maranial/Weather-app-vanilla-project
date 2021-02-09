@@ -7,8 +7,29 @@ let date = now.getDate();
 return `${month} ${date}`;
 }
 
+function showFahrenheitTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+    //remove the active class from the celsius button
+    celsiusLink.classList.remove("active-temp");
+    fahrenheitLink.classList.add("active-temp");
 
+    let fahrenheitTemp = (celsiusTemp * 9) / 5 +32;
+    //alert(fahrenheitTemp);
 
+    let temperatureCondition = document.querySelector("#temperatureId");
+    temperatureCondition.innerHTML = Math.round(fahrenheitTemp);
+   
+
+}
+
+function showCelsiusTemp(event){
+    event.preventDefault(); //avoid linking to the other page when using a link tag
+   
+    celsiusLink.classList.add("active-temp");
+    fahrenheitLink.classList.remove("active-temp");
+    let temperatureCondition = document.querySelector("#temperatureId");
+    temperatureCondition.innerHTML = Math.round(celsiusTemp);
+}
 
 
 
@@ -40,41 +61,27 @@ function showTemperature(response){
     currentIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
+function search(city){
+    //give an weather API 
+    let apiKey = "60b3896c2d6cd3626ba92846df62d601";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showTemperature);
+}
 
-//give an weather API 
-let apiKey = "60b3896c2d6cd3626ba92846df62d601";
-let city = "Boston";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+search("Boston");
 
-//console.log(apiUrl);
-axios.get(apiUrl).then(showTemperature);
-
-function showFahrenheitTemp(event){
-    event.preventDefault(); //avoid linking to the other page when using a link tag
-    //remove the active class from the celsius button
-    celsiusLink.classList.remove("active-temp");
-    fahrenheitLink.classList.add("active-temp");
-
-    let fahrenheitTemp = (celsiusTemp * 9) / 5 +32;
-    //alert(fahrenheitTemp);
-
-    let temperatureCondition = document.querySelector("#temperatureId");
-    temperatureCondition.innerHTML = Math.round(fahrenheitTemp);
-   
+function showSubmit(event){
+    event.preventDefault(); 
+    let currentCityInput = document.querySelector("#city-input");
+    //console.log(currentCityInput.value); test
+    search(currentCityInput.value);
 
 }
 
-function showCelsiusTemp(event){
-    event.preventDefault(); //avoid linking to the other page when using a link tag
-   
-    celsiusLink.classList.add("active-temp");
-    fahrenheitLink.classList.remove("active-temp");
-    let temperatureCondition = document.querySelector("#temperatureId");
-    temperatureCondition.innerHTML = Math.round(celsiusTemp);
-}
 
-// let form = document.querySelector("");
-// form.addEventListener("submit", showSubmit);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", showSubmit);
 
 let celsiusTemp = null;
 let feels_like_temp = null;
