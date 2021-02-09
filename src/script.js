@@ -61,11 +61,36 @@ function showTemperature(response){
     currentIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
+// function showForecast(response){
+//     let currentForecast = document.querySelector("#forecast-id");
+//     let forecast = null;
+//     currentForecast.innerHTML = null;
+
+//     for (let index = 0; index < 5; index++){
+//         forecast = response.data.list[index];
+//         currentForecast.innerHTML += `
+//         <div class="row align-items-end">
+//         <div class="col-2">
+//         <h4>${Math.round(forecast.main.temp)}&deg</h4>
+//         <img src= "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+//         <p> ${showMonthAndDate(forecast.dt * 1000)}</p>
+//         </div>
+//         </div>
+        
+//         `;
+//     }   
+    
+// }
+
 function search(city){
     //give an weather API 
     let apiKey = "60b3896c2d6cd3626ba92846df62d601";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showTemperature);
+
+    // apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    // axios.get(apiUrl).then(showTemperature);
+    // axios.get(apiUrl).then(showForecast);
 }
 
 search("Boston");
