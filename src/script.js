@@ -1,3 +1,18 @@
+let myDate = new Date();
+let hours = myDate.getHours();
+
+let greeting;
+
+    if (hours < 12)
+        greeting = 'Good Morning';
+    else if (hours >= 12 && hours <= 17)
+        greeting = 'Good Afternoon';
+    else if (hours >= 17 && hours <= 24)
+        greeting = 'Good Evening';
+
+    document.getElementById('greeting').innerHTML =
+        "<h1>" + greeting + "</h1>";
+
 function showMonthAndDate(timestamp){
 let now = new Date(timestamp);
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -43,6 +58,7 @@ function showTemperature(response){
     let lowCondition = document.querySelector("#low-id");
     let currentDate = document.querySelector("#now");
     let currentIcon = document.querySelector("#weather-icon");
+    //let currentGreeting = document.querySelector("#greeting");
 
     //don't need to create new variable because CelsiusTemp is a global variable, I just store it  to use it later.
     celsiusTemp = response.data.main.temp;
@@ -59,6 +75,7 @@ function showTemperature(response){
     currentDate.innerHTML = showMonthAndDate(response.data.dt * 1000);
     currentIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     currentIcon.setAttribute("alt", response.data.weather[0].description);
+    
 }
 
 // function showForecast(response){
